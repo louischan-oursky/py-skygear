@@ -8,14 +8,13 @@ RUN \
 RUN pip install --upgrade pip && \
     pip install --upgrade setuptools
 
-COPY requirements.txt /tmp/py-skygear/
-RUN pip install --no-cache-dir -r /tmp/py-skygear/requirements.txt
-
-COPY . /tmp/py-skygear
-RUN (cd /tmp/py-skygear; python setup.py install) && rm -rf /tmp/py-skygear
-
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED 0
 ENTRYPOINT ["dumb-init"]
-CMD ["py-skygear"]
+
+COPY requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . /usr/src/app
+
+CMD py-skygear village_plugin.py
