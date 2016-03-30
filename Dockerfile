@@ -12,4 +12,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED 0
 ENTRYPOINT ["dumb-init"]
-CMD ["py-skygear"]
+
+ONBUILD COPY requirements.txt /usr/src/app/
+ONBUILD RUN pip install --no-cache-dir -r requirements.txt
+
+ONBUILD COPY . /usr/src/app
