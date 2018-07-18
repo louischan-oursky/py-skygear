@@ -226,7 +226,7 @@ class TestCloudAssetSigner(unittest.TestCase):
         assert signer.sign('a good fixture') == (
             'http://mock-cloud-asset.dev/private/skygear-test/a%20good%20fixture'  # noqa
             '?expired_at=1481096834'
-            '&signature=iwF/9rz/rO2Tul1YsvAg/dJwjAklRfbFkCsXXD4Ej1w%3D'
+            '&signature=ngcacX71oJzYNTAyp95uBMxJPAejfumWf/3%2B/S%2B2mZ8%3D'
             '.mock-token-extra')
 
     def test_sign_public(self):

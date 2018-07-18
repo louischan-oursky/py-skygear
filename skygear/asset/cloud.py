@@ -125,7 +125,9 @@ class CloudAssetSigner(BaseAssetSigner):
 
         hasher = hmac.new(self.signer_token.value.encode('utf-8'),
                           digestmod=hashlib.sha256)
-        for each_info in [self.app_name, percent_escaped_name, expired_at_str,
+        # We still use the original name to derive the
+        # signature.
+        for each_info in [self.app_name, name, expired_at_str,
                           self.signer_token.extra]:
             hasher.update(each_info.encode('utf-8'))
 
