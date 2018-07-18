@@ -15,7 +15,7 @@
 __title__ = 'skygear'
 __description__ = 'Python plugin runtime for Skygear'
 __url__ = 'https://github.com/SkygearIO/py-skygear'
-__version__ = '1.5.99'
+__version__ = '1.5.100'
 __author__ = 'Rick Mak'
 __author_email__ = 'rick.mak@gmail.com'
 __license__ = 'Apache License, Version 2.0'
